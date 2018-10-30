@@ -12,7 +12,7 @@ from lbryschema.decode import smart_decode
 from lbrynet import conf
 from lbrynet.database.storage import SQLiteStorage
 from lbrynet.daemon.ComponentManager import ComponentManager
-from lbrynet.daemon.Components import DATABASE_COMPONENT, DHT_COMPONENT, WALLET_COMPONENT, STREAM_IDENTIFIER_COMPONENT
+from lbrynet.daemon.Components import DATABASE_COMPONENT, DHT_COMPONENT, WALLET_COMPONENT
 from lbrynet.daemon.Components import f2d
 from lbrynet.daemon.Components import HASH_ANNOUNCER_COMPONENT, REFLECTOR_COMPONENT, UPNP_COMPONENT, BLOB_COMPONENT
 from lbrynet.daemon.Components import PEER_PROTOCOL_SERVER_COMPONENT, EXCHANGE_RATE_MANAGER_COMPONENT
@@ -45,7 +45,7 @@ def get_test_daemon(data_rate=None, generous=True, with_fee=False):
     component_manager = ComponentManager(
         skip_components=[DATABASE_COMPONENT, DHT_COMPONENT, WALLET_COMPONENT, UPNP_COMPONENT,
                          PEER_PROTOCOL_SERVER_COMPONENT, REFLECTOR_COMPONENT, HASH_ANNOUNCER_COMPONENT,
-                         STREAM_IDENTIFIER_COMPONENT, EXCHANGE_RATE_MANAGER_COMPONENT, BLOB_COMPONENT,
+                         EXCHANGE_RATE_MANAGER_COMPONENT, BLOB_COMPONENT,
                          HEADERS_COMPONENT, RATE_LIMITER_COMPONENT],
         file_manager=FakeFileManager
     )
