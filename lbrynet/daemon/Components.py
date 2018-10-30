@@ -379,7 +379,9 @@ class BlobComponent(Component):
         storage = self.component_manager.get_component(DATABASE_COMPONENT)
         datastore = None
         if DHT_COMPONENT not in self.component_manager.skip_components:
-            datastore = self.component_manager.get_component(DHT_COMPONENT)._dataStore
+            dht_node = self.component_manager.get_component(DHT_COMPONENT)
+            if dht_node:
+                datastore = dht_node._dataStore
         self.blob_manager = DiskBlobManager(CS.get_blobfiles_dir(), storage, datastore)
         return self.blob_manager.setup()
 
